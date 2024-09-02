@@ -2,6 +2,8 @@
 
 This guide covers the steps to set up Docker on Windows Subsystem for Linux (WSL) in a Windows 11 environment.
 
+[Docker on WSL: A Step-by-Step Guide for Windows 11 Users](https://medium.com/@sharmarvellous/docker-on-wsl-a-step-by-step-guide-for-windows-11-users-b4ce1f8ec779)
+
 ## Prerequisites
 
 1. **Windows 11**: Ensure you are running Windows 11, as WSL is a feature introduced in Windows 10 and further improved in Windows 11.
