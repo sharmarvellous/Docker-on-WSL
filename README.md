@@ -6,7 +6,9 @@ This guide covers the steps to set up Docker on Windows Subsystem for Linux (WSL
 
 1. **Windows 11**: Ensure you are running Windows 11, as WSL is a feature introduced in Windows 10 and further improved in Windows 11.
 2. **WSL Installation**: Install the Windows Subsystem for Linux (WSL) by running the following command in PowerShell or Command Prompt:
+```
    wsl --install
+```
 This command will enable the necessary features and install the default Ubuntu distribution of Linux.
 
 ## Setting up Docker on WSL
@@ -15,28 +17,41 @@ This command will enable the necessary features and install the default Ubuntu d
 
 2. **Install Docker in Ubuntu WSL**:
    a. Update the package lists:
+   ```
       sudo apt-get update
+   ```
    
    b. Install the necessary dependencies:
+   ```
       sudo apt-get install ca-certificates curl
+   ```
    
    c. Add Docker's official GPG key:
+   ```
       sudo install -m 0755 -d /etc/apt/keyrings
+   ```
+   ```
+      sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   ```
    
-      sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo   
- apt-key add -
-
    d. Add the Docker repository to Apt sources:
-      echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu   
- $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null   
-
+   ```
+      echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   ```
+   
    e. Install Docker packages:
+   ```
       sudo apt-get update
-      sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin   
+   ```
+   ```
+      sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   ```
 
 
 4. **Verify Docker installation**:
+   ```
    sudo docker run hello-world
+   ```
 This command should pull and run the "hello-world" Docker image, verifying that Docker is installed and functioning correctly.
 
 ## Understanding the WSL, Sandbox, and Docker Relationship
