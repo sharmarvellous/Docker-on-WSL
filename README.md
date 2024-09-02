@@ -16,6 +16,7 @@ This command will enable the necessary features and install the default Ubuntu d
 1. **Start the Ubuntu WSL instance**: You should be able to see the "Ubuntu" (or the Linux distribution you selected) app in your Windows Start menu. Click on it to launch the WSL environment.
 
 2. **Install Docker in Ubuntu WSL**:
+
    a. Update the package lists:
    ```
       sudo apt-get update
