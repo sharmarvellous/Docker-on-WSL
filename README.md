@@ -57,6 +57,21 @@ This command will enable the necessary features and install the default Ubuntu d
    ```
 This command should pull and run the "hello-world" Docker image, verifying that Docker is installed and functioning correctly.
 
+## Granting User Access to Docker
+
+By default, Docker commands can only be executed by the superuser (sudo). To allow a regular user to run Docker commands without using `sudo`, follow these steps:
+
+1. Add the user to the `docker` group:
+```
+sudo usermod -aG docker admin1
+```
+Replace `admin1` with the username of the user you want to grant access to.
+
+2. Restart the Ubuntu WSL environment for the changes to take effect.
+
+This command adds the specified user (`admin1`) to the `docker` group, which grants them the necessary permissions to run Docker commands without using `sudo`.
+
+
 ## Understanding the WSL, Sandbox, and Docker Relationship
 
 1. **WSL (Windows Subsystem for Linux)**: This is a feature in Windows 10 and later that allows you to run Linux command-line tools and utilities directly on your Windows machine. It creates a Linux environment within Windows, providing a seamless integration between the two operating systems.
