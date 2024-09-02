@@ -16,12 +16,16 @@ This command will enable the necessary features and install the default Ubuntu d
 2. **Install Docker in Ubuntu WSL**:
    a. Update the package lists:
       sudo apt-get update
+   
    b. Install the necessary dependencies:
       sudo apt-get install ca-certificates curl
+   
    c. Add Docker's official GPG key:
       sudo install -m 0755 -d /etc/apt/keyrings
+   
       sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo   
  apt-key add -
+
    d. Add the Docker repository to Apt sources:
       echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu   
  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null   
@@ -31,7 +35,7 @@ This command will enable the necessary features and install the default Ubuntu d
       sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin   
 
 
-3. **Verify Docker installation**:
+4. **Verify Docker installation**:
    sudo docker run hello-world
 This command should pull and run the "hello-world" Docker image, verifying that Docker is installed and functioning correctly.
 
