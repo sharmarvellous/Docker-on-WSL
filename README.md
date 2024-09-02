@@ -14,23 +14,22 @@ This command will enable the necessary features and install the default Ubuntu d
 1. **Start the Ubuntu WSL instance**: You should be able to see the "Ubuntu" (or the Linux distribution you selected) app in your Windows Start menu. Click on it to launch the WSL environment.
 
 2. **Install Docker in Ubuntu WSL**:
+   a. Update the package lists:
+      sudo apt-get update
+   b. Install the necessary dependencies:
+      sudo apt-get install ca-certificates curl
+   c. Add Docker's official GPG key:
+      sudo install -m 0755 -d /etc/apt/keyrings
+      sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo   
+ apt-key add -
+   d. Add the Docker repository to Apt sources:
+      echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu   
+ $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null   
 
-  a. Update the package lists:
-     sudo apt-get update
-  b. Install the necessary dependencies:
-     sudo apt-get install ca-certificates curl
-  c. Add Docker's official GPG key:
-     sudo install -m 0755 -d /etc/apt/keyrings
-     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-     sudo chmod a+r /etc/apt/keyrings/docker.asc
-  d. Add the Docker repository to Apt sources:
-     echo
-     "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu 
-     $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | 
-     sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  e. Install Docker packages:
-     sudo apt-get update
-     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   e. Install Docker packages:
+      sudo apt-get update
+      sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin   
+
 
 3. **Verify Docker installation**:
    sudo docker run hello-world
